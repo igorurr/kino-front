@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Comfortaa:300,400,700|Amatic+SC:400,700');
+// raleway импортируй здесь
+
+html,
+body,
+#root {
+    //height: 100%;
+    margin: 0;
+    transition: none;
+}
+
+* {
+    transition: 200ms all linear;
+    box-sizing: border-box;
+    color: #000a;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Comfortaa', sans-serif;
+    margin: 5px 0;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+h4, h5, h6 {
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 55px;
+    font-family: 'Amatic SC', sans-serif;
+    letter-spacing: 5px;
+}
+
+h2 {
+    font-size: 35px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 25px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+a {
+    color: #324400;
+    cursor: pointer;
+    text-decoration: none !important;
+
+    &:hover {
+        color: #8AB51E;
+    }
+}
+
+body {
+    position: relative;
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 30%,rgba(228,228,228,1) 100%);
+    font-family: 'Roboto', sans-serif;
+
+    .main-top-bar {
+        box-shadow: 0 0 40px #0004;
+        background: #fff;
+    }
+
+    .main-header {
+        margin-bottom: 50px;
+
+        div {
+        }
+    }
+
+    .main-footer {
+        height: 200px;
+        box-shadow: 0 0 40px 16px #33423a60;
+        background: linear-gradient(90deg, #33423a 1%, #555b46 99.97%);
+        margin-top: 50px;
+        padding: 25px;
+        
+        * {
+            color: #fff;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+#root {
+    position: relative;
+
+    .dev-tools {
+        position: absolute;
+
+        background: #fff;
+        padding: 3px;
+        border-radius: 0 0 8px 0;
+    }
+
+    .dev-tools:hover {
+        opacity: 0.4;
+    }
+}

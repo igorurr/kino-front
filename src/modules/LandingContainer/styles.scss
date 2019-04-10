@@ -1,0 +1,15 @@
+.main-landing {
+
+
+    .landing-container {
+        margin: 50px;
+
+        &:nth-child(2n) {
+            margin-left: 25px;
+        }
+
+        &:nth-child(2n+1) {
+            margin-right: 25px;
+        }
+    }
+}

@@ -1,0 +1,2 @@
+export const IS_LOADING = 'IS_LOADING';
+export const FETCH_BOOL_SEARCH = 'FETCH_BOOL_SEARCH';

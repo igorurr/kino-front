@@ -1,0 +1,66 @@
+.top-nav-main {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 24px;
+
+    .logo {
+        cursor: default;
+        margin: 0;
+        text-align: center;
+    }
+
+    .github-logo {
+        width: 23px;
+    }
+
+    .top-nav-main-item {
+        flex-grow: 1;
+    }
+
+    &.mobile {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 7%;
+            right: 7%;
+            top: 0;
+            height: 1px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 61%, rgba(0, 0, 0, 0) 100%);
+        }
+        
+        .top-nav-main-item {
+            margin: 10px;
+        }
+    }
+
+    
+   @media (min-width: 1001px) {
+    &.mobile,
+    .burger {
+        display: none;
+    }
+   }
+
+   @media (max-width: 1000px) {
+    &.desktop h5 {
+        display: none;
+    }
+   }
+
+   @media (max-width: 600px) {
+    .logo {
+        margin-left: 36px;
+    }
+
+    &.mobile {
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+   }
+}

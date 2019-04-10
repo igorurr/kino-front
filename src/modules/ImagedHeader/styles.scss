@@ -1,0 +1,26 @@
+.imaged-header {
+    height: 74vh;
+    
+    box-shadow: 0 12px 28px #0005;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: none;
+    
+    > main {
+        background: #0009;
+        color: #fff;
+        height: 100%;
+        padding: 0 40% 0 25px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+
+        * {
+            color: #fff;
+        }
+    }
+
+}
