@@ -27,6 +27,9 @@ const store = createStore( reducers, middlewares )
 
 const history = createRouterHistory( store );
 
+// чекаем наличие fetch либо грузим его полифил
+// чекаем наличие promise либо грузим его полифил
+
 export default class extends Component {
   render() {
     return (

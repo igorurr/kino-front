@@ -16,3 +16,11 @@ export const createRef = ( targetObject, propertyName ) => ( elem ) => {
         dom: findDOMNode(elem)
     };
 }
+
+// возвращает объект, над каждым элементом которого совершен method
+// method( val, key, i ) 
+export const mapObject = ( obj, method ) => {
+    let ret = {};
+    Object.keys( obj ).forEach( ( key, i ) => ret[key] = method( obj[key], key, i ) )
+    return ret;
+}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import api from "../../../envs/api";
+
 import { Main } from "../../../modules/PageBody/index";
 
 import TopNavMain from "../../../modules/TopNavMain/";
@@ -26,6 +28,10 @@ class Boolsearch extends Component {
                 <Films />
             </Main>
         );
+    }
+
+    componentWillMount() {
+        api.kino.userMe().then( resp => console.log(resp) )
     }
 }
 
