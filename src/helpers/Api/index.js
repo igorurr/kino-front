@@ -4,7 +4,7 @@ import { mapObject } from '../Js';
 
 const __DEV__ = true;
 
-export { GET, HEAD, POST, PUT, PATH, DELETE } from './const';
+export { GET, HEAD, POST, PUT, PATCH, DELETE } from './const';
 
 export const createMethods = ( endpoints, schemas, methods ) => {
     methods = compileSchemas( methods, schemas );

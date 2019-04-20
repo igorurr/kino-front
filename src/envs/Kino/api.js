@@ -1,4 +1,4 @@
-import { createMethods, GET, HEAD, POST, PUT, PATH, DELETE } from '../../helpers/Api/';
+import { createMethods, GET, HEAD, POST, PUT, PATCH, DELETE } from '../../helpers/Api/';
 
 /*
     методы хранятся у каждого окружения отдельно, в createEnv подбираешь методы апи, компилишь их и отдаёшь объект как параметр в Actions
@@ -41,7 +41,12 @@ const endpoints = {
 
 const schemas = {
     mainEndpoint: {
-        endpoint: 'main'
+        endpoint: 'main',
+        defHeaders: {
+            'Accept': 'application/json;odata=verbose',
+            'Content-Type': 'application/json;odata=verbose',
+            'authorization': 'token ae379df3c31a25d0410aeddabf2c0739127db6b9'
+        }
     },
     islogin: {
         endpoint: 'main',
@@ -79,7 +84,7 @@ const methods = {
         method: POST,
         schemas: ['mainEndpoint'],
         checkOptions: {
-            login: { required: true, value: '.*' },
+            username: { required: true, value: '.*' },
             email: { required: true, value: '.*@.*' },
             password: { required: true, value: '.*' }
         }
@@ -89,7 +94,7 @@ const methods = {
         method: POST,
         schemas: ['mainEndpoint'],
         checkOptions: {
-            login: { required: true, value: '.*' },
+            username: { required: true, value: '.*' },
             email: { required: true, value: '.*@.*' },
             password: { required: true, value: '.*' }
         }

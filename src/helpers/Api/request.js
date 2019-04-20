@@ -1,4 +1,4 @@
-import { GET, HEAD, POST, PUT, PATH, DELETE } from './const';
+import { GET, HEAD, POST, PUT, PATCH, DELETE } from './const';
 
 const createUrlOptions = ( url, options ) => {
     const queryString = '?' + Object.keys(options).map( key => key + '=' + options[key] ).join('&');
@@ -6,34 +6,26 @@ const createUrlOptions = ( url, options ) => {
     return url + queryString;
 }
 
+const defaultVals = {
+    mode: 'cors',
+    redirect: 'follow'
+};
 
-const get = ( url, headers, options ) => { 
-    console.log({
-        method: GET,
-        mode: 'cors',
-        headers: Object.assign( {}, headers, {
-            'Access-Control-Allow-Origin':'*'
-        } ),
-        redirect: 'follow'
-    })
-    return fetch(
+const get = ( url, headers, options ) => fetch(
     createUrlOptions( url, options ),
     {
         method: GET,
-        mode: 'cors',
-        headers: Object.assign( {}, headers, {
-            'Access-Control-Allow-Origin':'*'
-        } ),
-        redirect: 'follow'
+        headers,
+        ...defaultVals
     }
-) };
+);
 
 const head = ( url, headers, options ) => fetch(
     createUrlOptions( url, options ),
     {
         method: HEAD,
         headers,
-        redirect: 'follow'
+        ...defaultVals
     }
 );
 
@@ -42,8 +34,8 @@ const post = ( url, headers, options ) => fetch(
     {
         method: POST,
         headers,
-        body: options,
-        redirect: 'follow'
+        body: JSON.stringify(options),
+        ...defaultVals
     }
 );
 
@@ -52,18 +44,18 @@ const put = ( url, headers, options ) => fetch(
     {
         method: PUT,
         headers,
-        body: options,
-        redirect: 'follow'
+        body: JSON.stringify(options),
+        ...defaultVals
     }
 );
 
-const path = ( url, headers, options ) => fetch(
+const patch = ( url, headers, options ) => fetch(
     url, 
     {
-        method: PATH,
+        method: PATCH,
         headers,
-        body: options,
-        redirect: 'follow'
+        body: JSON.stringify(options),
+        ...defaultVals
     }
 );
 
@@ -72,8 +64,8 @@ const deleteRequest = ( url, headers, options ) => fetch(
     {
         method: DELETE,
         headers,
-        body: options,
-        redirect: 'follow'
+        body: JSON.stringify(options),
+        ...defaultVals
     }
 );
 
@@ -88,14 +80,11 @@ export default ( url, method, headers, options ) => {
             return post( url, headers, options );
         case PUT:
             return put( url, headers, options );
-        case PATH:
-            return path( url, headers, options );
+        case PATCH:
+            return patch( url, headers, options );
         case DELETE:
             return deleteRequest( url, headers, options );
         default:
-            return Promise.reject( { response: {
-                status: 0,
-                statusText: "Error request method",
-            } } );
+            return Promise.reject( "Error request method" );
     }
 }

@@ -12,7 +12,7 @@ import routes from "../pages/routes";
 
 import envsReducers from "../envs/reducers";
 
-const __DEV__ = true; // кайф костыль, убери когда серверсайд потянешь
+export const __DEV__ = true; // кайф костыль, убери когда серверсайд потянешь
 
 const reducers = {
   routing: routerReducer,
