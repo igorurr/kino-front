@@ -33,7 +33,7 @@ class Films extends Component {
                 )}
 
                 {allFilms().length !== 0 && allFilms().map( film => (
-                    <Film film={film} />
+                    <Film key={film.id} film={film} />
                 ))}
 
                 {isLoading() && (

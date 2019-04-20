@@ -19,6 +19,7 @@ export default ( {} ) => (
                 <ExpandMore />
             </Fab>
             <Menu
+                open={false}
             >
                 <MenuItem>Profile</MenuItem>
                 <MenuItem>My account</MenuItem>

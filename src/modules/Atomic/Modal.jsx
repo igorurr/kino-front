@@ -26,11 +26,12 @@ const styles = theme => ({
 
 export default withStyles(styles)( ( { 
     className, classes,
-    children, ...props
+    children, open, ...props
 } ) => {
     return (
         <Modal
             {...props}
+            open={open || false}
         >
             <article className={cn(classes.modalWindow,className)}>
                 {children}

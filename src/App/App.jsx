@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom';
 import { routerReducer } from 'react-router-redux';
@@ -11,6 +11,8 @@ import { RenderDevTools } from "../modules/DevTools/";
 import routes from "../pages/routes";
 
 import envsReducers from "../envs/reducers";
+
+import AppContent from "./AppContent";
 
 export const __DEV__ = true; // кайф костыль, убери когда серверсайд потянешь
 
@@ -30,17 +32,15 @@ const history = createRouterHistory( store );
 // чекаем наличие fetch либо грузим его полифил
 // чекаем наличие promise либо грузим его полифил
 
-export default class extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Router history={history}>
-          {__DEV__ && <RenderDevTools store={store} />}
-          {createRoutes( routes )}
-        </Router>
-      </Provider>
-    );
-  }
-}
+export default () => (
+  <Provider store={store}>
+    <Router history={history}>
+      <AppContent>
+        {__DEV__ && <RenderDevTools store={store} />}
+        {createRoutes( routes )}
+      </AppContent>
+    </Router>
+  </Provider>
+);
 
 //ReactDOM.render(<App />, document.getElementById('root'));

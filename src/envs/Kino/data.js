@@ -1,10 +1,12 @@
 import { createSelector } from "reselect";
+import ls from "../../helpers/LocalStorrage";
 
 import { Data } from "../../helpers/Environment";
 
 const isLoadingSelector = store => store.kino.isLoading;
 
 const userSelector = store => store.kino.user;
+const localUserSelector = store => store.kino.localUser;
 
 export default class extends Data {
     constructor( state ){
@@ -14,6 +16,8 @@ export default class extends Data {
         this.user = this.user.bind(this);
         this.userSettings = this.userSettings.bind(this);
     }
+
+    lsUserAuthToken = () => ls.get('userAuthToken');
 
     isLoading() {
         return isLoadingSelector( this.state );
@@ -30,12 +34,12 @@ export default class extends Data {
     }
 
     userName() {
-        const { name } = userSelector( this.state );
+        const { username } = userSelector( this.state );
 
-        return this.userLogined() ? name : 'Гость';
+        return username;
     }
 
     userSettings() {
-        return userSelector( this.state ).settings;
+        return localUserSelector( this.state ).settings;
     }
 }

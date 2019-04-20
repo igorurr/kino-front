@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import cn from 'classnames';
-import { Link } from "react-router-dom";
 import { IconButton, Button } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
 
 import { elemInvolvedInEvent, createRef } from "../../helpers/Js/";
+import { Link } from "../../helpers/Router/";
 
 import "./styles.scss";
 
@@ -15,22 +15,22 @@ import { UserMenu } from "./Components/";
 const Pages = () => (
     <>
         <h5 className="top-nav-main-item">
-            <Link to='/films/boolsearch'>
+            <Link route='boolsearch'>
                     Булево поиск
             </Link>
         </h5>
         <h5 className="top-nav-main-item">
-            <Link>
+            <Link route='boolsearch'>
                     + Цитатный поиск
             </Link>
         </h5>
         <h5 className="top-nav-main-item">
-            <Link>
+            <Link route='boolsearch'>
                     + TF-IDF
             </Link>
         </h5>
         <h5 className="top-nav-main-item">
-            <Link>
+            <Link route='boolsearch'>
                     + Зонный поиск
             </Link>
         </h5>
@@ -46,7 +46,7 @@ const TopNavMainDesktop = ( { toggleStateOpenedMobileMenu } ) => (
             <Menu />
         </IconButton>
         <h1 className="top-nav-main-item logo">
-            <Link to='/'>
+            <Link route='index'>
                     Кино
             </Link>
         </h1>

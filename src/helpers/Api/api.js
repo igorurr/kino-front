@@ -105,15 +105,15 @@ export const compileMethod = ( { url, method, defHeaders, defOptions, preload } 
 
     return ( options, headers ) => {
         if(preload)
-            [options, headers] = preload(options, headers);
+            [options, headers] = preload(options || {}, headers || {});
 
         if(headers)
-            Object.assign( headers, defHeaders );
+            Object.assign( headers, defHeaders || {} );
         else
             headers = defHeaders || {};
 
         if(options)
-            Object.assign( options, defOptions );
+            Object.assign( options, defOptions || {} );
         else
             options = defOptions || {};
 

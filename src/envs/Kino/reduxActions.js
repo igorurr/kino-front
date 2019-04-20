@@ -1,8 +1,14 @@
 import { 
-    IS_LOADING
+    GET_USER,
+    LOGOUT
 } from "./consts";
 
-export const isLoading = ( isLoading ) => ({
-    type: IS_LOADING,
-    isLoading
+export const getUser = ( user, localUser ) => ({
+    type: GET_USER,
+    user,
+    localUser
+});
+
+export const logout = () => ({
+    type: LOGOUT
 });

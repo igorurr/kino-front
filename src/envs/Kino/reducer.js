@@ -1,7 +1,5 @@
 import { 
-    IS_LOADING,
-
-    LOGIN,
+    GET_USER,
     LOGOUT,
 
     PAGINATION,
@@ -9,22 +7,31 @@ import {
 } from "./consts";
 
 const initialState = {
-    isLoading: false,
     user: {
         id: -1,
-        name: '',
+        email: '',
+        username: 'Гость',
+    },
+    localUser: {
         settings: {
-            typeInfinityContent: INF_SCROLL
+            typePagingContent: INF_SCROLL
         }
     }
 };
 
 export default ( state = initialState, { type, ...action } ) => {
     switch( type ) {            
-        case IS_LOADING:
+        case GET_USER:
             return {
                 ...state,
-                isLoading: action.isLoading
+                user: action.user,
+                localUser: action.localUser,
+            }  
+
+        case LOGOUT:
+            return {
+                ...state,
+                user: initialState.user
             }
 
         default:

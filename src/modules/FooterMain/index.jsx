@@ -76,7 +76,6 @@ export default class extends Component {
                         <FormControl>
                             <Button
                                 variant='outlined'
-                                color='#0c0'
                             >
                                 Куссс
                             </Button>

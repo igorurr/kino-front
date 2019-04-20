@@ -36,42 +36,24 @@ export default class extends Api {
                 }
             }
         } );
-
+        
         this.initMethods( {
-            userAuth: {
-                url: '/user/auth',
-                method: POST,
-                schemas: ['mainEndpoint'],
-                checkOptions: {
-                    login: { required: true, value: '.*' },
-                    password: { required: true, value: '.*' }
-                }
-            },
-            userRegistration: {
-                url: '/user/registration',
-                method: POST,
-                schemas: ['mainEndpoint'],
-                checkOptions: {
-                    username: { required: true, value: '.*' },
-                    email: { required: true, value: '.*@.*' },
-                    password: { required: true, value: '.*' }
-                }
-            },
-            userRestorePass: {
-                url: '/user/restore_pass',
-                method: POST,
-                schemas: ['mainEndpoint'],
-                checkOptions: {
-                    username: { required: true, value: '.*' },
-                    email: { required: true, value: '.*@.*' },
-                    password: { required: true, value: '.*' }
-                }
-            },
-            userMe: {
-                url: '/user/me',
+            search: {
+                url: '/search',
                 method: GET,
-                schemas: ['mainEndpoint']
-            }
+                schemas: ['mainEndpoint'],
+                checkOptions: {
+                    query: { required: true, value: '.*' }
+                }
+            },
+            lastQueries: {
+                url: '/lastQueries',
+                method: GET,
+                schemas: ['mainEndpoint'],
+                checkOptions: {
+                    query: { required: true, value: '.*' }
+                }
+            },
         } );
         
         this.compileApi();

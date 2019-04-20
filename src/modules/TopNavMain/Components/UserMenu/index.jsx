@@ -41,6 +41,7 @@ class UserMenu extends Component {
 
     render(){
         const { activeMenu } = this.state;
+        const { actions: { logout } } = this.props.kino;
 
         return (
             <>
@@ -86,6 +87,7 @@ class UserMenu extends Component {
                     </MenuItem>
                     <MenuItem
                         className="user-drop-down-menu-item"
+                        onClick={logout}
                     >
                         Logout
                     </MenuItem>
