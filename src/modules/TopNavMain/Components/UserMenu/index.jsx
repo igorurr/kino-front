@@ -4,6 +4,7 @@ import { Link } from "../../../../helpers/Router/";
 import { IconButton, Button, Menu, MenuItem } from '@material-ui/core';
 import { Person } from '@material-ui/icons';
 
+import { withRouter } from "react-router";
 import { withKino } from "../../../../envs/Kino/";
 
 import "./styles.scss";
@@ -29,6 +30,9 @@ class UserMenu extends Component {
 
         this.closeModal = this.closeModal.bind(this);
         this.openModal = this.openModal.bind(this);
+        this.checkHash = this.checkHash.bind(this);
+
+        this.checkHash();
     }
 
     closeModal( modal ){
@@ -37,6 +41,19 @@ class UserMenu extends Component {
 
     openModal( modal ){
         this.setState({ activeMenu: modal })
+    }
+
+    checkHash() {
+        const hash = this.props.location.hash;
+
+        if( hash === '#login' )
+            this.state = { ...this.state, activeMenu: LOGIN_MENU };
+
+        else if( hash === '#registration' )
+            this.state = { ...this.state, activeMenu: REGISTRATION_MENU };
+
+        else if( hash === '#restorepassword' )
+            this.state = { ...this.state, activeMenu: RESTORE_PASSWORD_MENU };
     }
 
     render(){
@@ -107,4 +124,4 @@ class UserMenu extends Component {
     }
 }
 
-export default withKino(UserMenu);
+export default withRouter(withKino(UserMenu));

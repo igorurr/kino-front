@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { withKino } from '../envs/Kino'
+import { withKino } from '../envs/Kino';
 
 class AppContent extends Component {
     /*constructor( props ) {

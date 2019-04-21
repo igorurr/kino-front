@@ -3,8 +3,6 @@ import ls from "../../helpers/LocalStorrage";
 
 import { Data } from "../../helpers/Environment";
 
-const isLoadingSelector = store => store.kino.isLoading;
-
 const userSelector = store => store.kino.user;
 const localUserSelector = store => store.kino.localUser;
 
@@ -12,7 +10,6 @@ export default class extends Data {
     constructor( state ){
         super(state);
 
-        this.isLoading = this.isLoading.bind(this);
         this.user = this.user.bind(this);
         this.userLogined = this.userLogined.bind(this);
         this.userName = this.userName.bind(this);
@@ -20,10 +17,6 @@ export default class extends Data {
     }
 
     lsUserAuthToken = () => ls.get('userAuthToken');
-
-    isLoading() {
-        return isLoadingSelector( this.state );
-    }
 
     user() {
         return userSelector( this.state );

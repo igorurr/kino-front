@@ -6,6 +6,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { Route } from 'react-router-dom';
 
 export let appRoutes = {};
+export let history = null;
 
 const createRoutesWorker = ( routes, curRoute ) => {
     return Object.keys( routes ).map( key => {
@@ -39,5 +40,6 @@ export const createRoutes = ( routes ) => {
 };
 
 export const createRouterHistory = ( store ) => {
-    return syncHistoryWithStore( createBrowserHistory(), store );
+    history = syncHistoryWithStore( createBrowserHistory(), store );
+    return history;
 };

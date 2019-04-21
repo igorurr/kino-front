@@ -1,3 +1,3 @@
 
 export { createRoutes, createRouterHistory } from './initAppHelpers';
-export { redirect, Link } from './appDevelopHelpers';
+export { redirect, Redirect, Link } from './appDevelopHelpers';

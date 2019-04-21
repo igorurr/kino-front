@@ -25,7 +25,7 @@ export default ( state = initialState, { type, ...action } ) => {
             return {
                 ...state,
                 user: action.user,
-                localUser: action.localUser,
+                ...( action.localUser ? { localUser: action.localUser } : {} ),
             }  
 
         case LOGOUT:
