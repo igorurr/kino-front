@@ -4,3 +4,17 @@
         color: #000a !important;
     }
 }
+
+.login-modal {
+
+    
+    &-item {
+
+
+        &-error {
+            margin: 8px 0;
+            font-size: 13px;
+            color: #d00;
+        }
+    }
+}

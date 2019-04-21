@@ -14,6 +14,8 @@ export default class extends Data {
 
         this.isLoading = this.isLoading.bind(this);
         this.user = this.user.bind(this);
+        this.userLogined = this.userLogined.bind(this);
+        this.userName = this.userName.bind(this);
         this.userSettings = this.userSettings.bind(this);
     }
 

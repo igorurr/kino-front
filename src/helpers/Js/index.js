@@ -4,8 +4,7 @@ import { findDOMNode } from 'react-dom';
 // найти элемент на котором произошло событие
 // по дереву иерархии элементов до самого document найти елемент elem
 export const elemInvolvedInEvent = ( event, element ) => {
-    console.log( event);
-    return false;
+    return !!event.path.find( el => el === element );
 }
 
 // возвращает функцию, записывающую в targetObject свойство propertyName,

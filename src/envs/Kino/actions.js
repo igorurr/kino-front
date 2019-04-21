@@ -38,26 +38,37 @@ export default class extends Actions {
         this.login = this.login.bind(this);
         this.getUser = this.getUser.bind(this);
         this.thenGetUser = this.thenGetUser.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
-    thenGetUser( { localUser, ...user } ) {
+    thenGetUser( { token, user: { localUser, ...user } } ) {
         this.dispatch( getUser( user, localUser ) );
+        ls.set( 'userAuthToken', token )
+        return ( { localUser, user } );
     };
 
     registration( username, email, password ) {
-        this.api.userRegistration( { username, email, password } )
+        return this.api.userRegistration( { username, email, password } )
             .then( this.thenGetUser )
     }
 
     login( email, password ) {
-        this.api.userAuth( { email, password } )
+        return this.api.userAuth( { email, password } )
             .then( this.thenGetUser )
     }
 
     getUser() {
-        if( this.data.lsUserAuthToken() )
-            this.api.userMe()
-                .then( this.thenGetUser )
+        return new Promise( ( resolve, reject ) => {
+            if( this.data.lsUserAuthToken() )
+                this.api.userMe()
+                    .then( ( { user: { localUser, ...user } } ) => {
+                        this.dispatch( getUser( user, localUser ) );
+                        resolve( { localUser, user } )
+                    } )
+                    .catch( reject )
+            else
+                reject( 'no Token' )
+        } );
     }
 
     logout() {

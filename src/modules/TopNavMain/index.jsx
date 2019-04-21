@@ -61,8 +61,8 @@ const TopNavMainDesktop = ( { toggleStateOpenedMobileMenu } ) => (
     </article>
 );
 
-const TopNavMainMobile = () => (
-    <article className={cn("top-nav-main", "mobile")}>
+const TopNavMainMobile = ( { refElem } ) => (
+    <article ref={refElem} className={cn("top-nav-main", "mobile")}>
         <Pages />
     </article>
 );
@@ -75,14 +75,14 @@ export default class extends Component {
             menuOpened: false
         };
 
-        this.clickBackgroundAndClose = this.clickBackgroundAndClose.bind(this);
+        this.checkClickBackgroundAndClose = this.checkClickBackgroundAndClose.bind(this);
         this.openMobileMenu = this.openMobileMenu.bind(this);
         this.closeMobileMenu = this.closeMobileMenu.bind(this);
         this.toggleStateOpenedMobileMenu = this.toggleStateOpenedMobileMenu.bind(this);
     }
 
-    clickBackgroundAndClose( e ) {
-        if( !elemInvolvedInEvent( e, this.topNavMainMobileRef.dom ) )
+    checkClickBackgroundAndClose( e ) {
+        if( elemInvolvedInEvent( e, this.topNavMainMobileRef.dom ) )
             return;
 
         this.closeMobileMenu();
@@ -117,7 +117,7 @@ export default class extends Component {
                 <TopNavMainDesktop
                     toggleStateOpenedMobileMenu={this.toggleStateOpenedMobileMenu}
                 />
-                { menuOpened && <TopNavMainMobile ref={createRef(this, 'topNavMainMobileRef')} /> }
+                { menuOpened && <TopNavMainMobile refElem={createRef(this, 'topNavMainMobileRef')} /> }
             </>
         );
     }

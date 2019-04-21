@@ -41,7 +41,10 @@ class UserMenu extends Component {
 
     render(){
         const { activeMenu } = this.state;
-        const { actions: { logout } } = this.props.kino;
+        const { 
+            data: { userLogined },
+            actions: { logout }
+        } = this.props.kino;
 
         return (
             <>
@@ -66,31 +69,31 @@ class UserMenu extends Component {
                     open={activeMenu === USER_MENU}
                     onClose={()=>this.closeModal(USER_MENU)}
                 >
-                    <MenuItem
+                    { !userLogined() && <MenuItem
                         className="user-drop-down-menu-item"
                         onClick={()=>this.openModal(LOGIN_MENU)}
                     >
                         Login
-                    </MenuItem>
-                    <MenuItem
+                    </MenuItem> }
+                    { !userLogined() && <MenuItem
                         className="user-drop-down-menu-item"
                         onClick={()=>this.openModal(REGISTRATION_MENU)}
                     >
                         Registration
-                    </MenuItem>
-                    <MenuItem
+                    </MenuItem> }
+                    { userLogined() && <MenuItem
                         className="user-drop-down-menu-item"
                     >
                         <Link route='user'>
                             My account
                         </Link>
-                    </MenuItem>
-                    <MenuItem
+                    </MenuItem> }
+                    { userLogined() && <MenuItem
                         className="user-drop-down-menu-item"
                         onClick={logout}
                     >
                         Logout
-                    </MenuItem>
+                    </MenuItem> }
                 </Menu>
                 <IconButton
                     onClick={()=>this.openModal(USER_MENU)}
