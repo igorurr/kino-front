@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import cn from 'classnames';
 import ReactDOM from 'react-dom';
-import { Link } from "../../../../helpers/Router/";
+import { Link } from "../../../helpers/Router/";
 import { IconButton, Button, Menu, MenuItem } from '@material-ui/core';
 import { Person } from '@material-ui/icons';
 
 import { withRouter } from "react-router";
-import { withKino } from "../../../../envs/Kino/";
+import { withKino } from "../../../envs/Kino/";
 
 import "./styles.scss";
 
@@ -98,13 +99,16 @@ class UserMenu extends Component {
                     >
                         Registration
                     </MenuItem> }
-                    { userLogined() && <MenuItem
-                        className="user-drop-down-menu-item"
-                    >
-                        <Link route='user'>
-                            My account
-                        </Link>
-                    </MenuItem> }
+                    { userLogined() && <Link route='user'>
+                        <MenuItem
+                            className={cn(
+                                "user-drop-down-menu-item",
+                                'user-drop-down-menu-item-person'
+                            )}
+                        >
+                            <Person />
+                        </MenuItem> 
+                    </Link>}
                     { userLogined() && <MenuItem
                         className="user-drop-down-menu-item"
                         onClick={logout}

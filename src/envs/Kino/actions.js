@@ -42,8 +42,7 @@ export default class extends Actions {
     }
 
     thenGetUser( { token, user: { localUser, ...user } } ) {
-        this.dispatch( getUser( user, localUser ) );
-        ls.set( 'userAuthToken', token )
+        ls.set( 'userAuthToken', token );
         return ( { localUser, user } );
     };
 

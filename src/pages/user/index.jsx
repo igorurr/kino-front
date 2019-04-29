@@ -45,15 +45,16 @@ class User extends Component {
         return (
             <Main
                 title="Юзер"
-                classes="page-user"
                 topNavContent={<TopNavMain />}
                 footerContent={<Footer />}
             >
-                <UserInfo />
-                <PriorityRecomended />
-                <HistorySearch />
-                <Favorites />
-                <LastItems />
+                <main className="page-user">
+                    <UserInfo />
+                    <PriorityRecomended />
+                    <HistorySearch />
+                    <Favorites />
+                    <LastItems />
+                </main>
             </Main>
         );
     }

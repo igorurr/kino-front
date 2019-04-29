@@ -25,17 +25,26 @@ export default class extends Component {
         //const {  } = this.store;
 
         return (
-            <article className='page-user-priority-recomended'>
+            <article className='page-user-item page-user-priority-recomended'>
                 <header>
                     Последние просмотренные
                 </header>
                 <nav>
                     
                 </nav>
-                <main>
-                    <Film film={defFilm} />
-                    <Film film={defFilm} />
-                    <Film film={defFilm} />
+                <main className="page-user-priority-recomended-films-container">
+                    <Film 
+                        className="film"
+                        film={defFilm}
+                    />
+                    <Film
+                        className="film"
+                        film={defFilm}
+                    />
+                    <Film
+                        className="film"
+                        film={defFilm}
+                    />
                 </main>
             </article>
         );

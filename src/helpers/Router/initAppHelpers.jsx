@@ -3,6 +3,7 @@ import React from 'react';
 import { createBrowserHistory } from 'history';
 import { syncHistoryWithStore } from 'react-router-redux';
 
+import { withRouter } from 'react-router';
 import { Route } from 'react-router-dom';
 
 export let appRoutes = {};
@@ -40,6 +41,15 @@ export const createRoutes = ( routes ) => {
 };
 
 export const createRouterHistory = ( store ) => {
-    history = syncHistoryWithStore( createBrowserHistory(), store );
-    return history;
+    return syncHistoryWithStore( createBrowserHistory(), store );
 };
+
+export const AppRouter = withRouter( ( { history: hs, children } ) => {
+    history = hs;
+    console.log(hs)
+    return (
+        <>
+            {children}
+        </>
+    )
+} );

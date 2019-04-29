@@ -1,7 +1,14 @@
 .page-user {
+    display: flex;
+    flex-wrap: wrap;
+
+    &-item {
+        width: calc(50% - 40px);
+        margin: 20px;
+        height: 90vh;
+    }
 
     &-history-search {
-        
     }
 
     &-last-items {
@@ -13,10 +20,34 @@
     }
 
     &-user-info {
-        
+        width: calc(40% - 40px);
+
+        &-data-section {
+            margin: 11px 0;
+
+            &.avatar {
+                margin: 10px auto;
+            }
+
+            &.cash-balance {
+                margin: 10px auto;
+            }
+        }
     }
 
     &-priority-recomended {
-        
+        width: calc(60% - 40px);
+
+        &-films-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+
+            .film {
+                max-width: initial;
+                min-width: initial;
+                width: 196px;
+            }
+        }
     }
 }

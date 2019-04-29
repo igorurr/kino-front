@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { routerReducer } from 'react-router-redux';
 
 import { createStore } from "../helpers/Store/";
-import { createRoutes, createRouterHistory } from "../helpers/Router/";
+import { createRoutes, createRouterHistory, AppRouter } from "../helpers/Router/";
 
 import { RenderDevTools } from "../modules/DevTools/";
 
@@ -35,10 +35,12 @@ const history = createRouterHistory( store );
 export default () => (
   <Provider store={store}>
     <Router history={history}>
-      <AppContent>
-        {__DEV__ && <RenderDevTools store={store} />}
-        {createRoutes( routes )}
-      </AppContent>
+      <AppRouter>
+        <AppContent>
+          {__DEV__ && <RenderDevTools store={store} />}
+          {createRoutes( routes )}
+        </AppContent>
+      </AppRouter>
     </Router>
   </Provider>
 );

@@ -1,71 +1,9 @@
 import React, { Component } from 'react';
-import cn from 'classnames';
-import { IconButton, Button } from '@material-ui/core';
-import { Menu } from '@material-ui/icons';
 
 import { elemInvolvedInEvent, createRef } from "../../helpers/Js/";
-import { Link } from "../../helpers/Router/";
 
-import "./styles.scss";
-
-import githubLogo from "./img/github-logo.svg";
-
-import { UserMenu } from "./Components/";
-
-const Pages = () => (
-    <>
-        <h5 className="top-nav-main-item">
-            <Link route='boolsearch'>
-                    Булево поиск
-            </Link>
-        </h5>
-        <h5 className="top-nav-main-item">
-            <Link route='boolsearch'>
-                    + Цитатный поиск
-            </Link>
-        </h5>
-        <h5 className="top-nav-main-item">
-            <Link route='boolsearch'>
-                    + TF-IDF
-            </Link>
-        </h5>
-        <h5 className="top-nav-main-item">
-            <Link route='boolsearch'>
-                    + Зонный поиск
-            </Link>
-        </h5>
-    </>
-);
-
-const TopNavMainDesktop = ( { toggleStateOpenedMobileMenu } ) => (
-    <article className={cn("top-nav-main", "desktop")}>
-        <IconButton
-            className="burger"
-            onClick={toggleStateOpenedMobileMenu}
-        >
-            <Menu />
-        </IconButton>
-        <h1 className="top-nav-main-item logo">
-            <Link route='index'>
-                    Кино
-            </Link>
-        </h1>
-        <Pages />
-        <IconButton>
-            <img 
-                src={githubLogo}
-                className="github-logo"
-            />
-        </IconButton>
-        <UserMenu />
-    </article>
-);
-
-const TopNavMainMobile = ( { refElem } ) => (
-    <article ref={refElem} className={cn("top-nav-main", "mobile")}>
-        <Pages />
-    </article>
-);
+import TopNavMainDesktop from './Components/TopNavMainDesktop';
+import TopNavMainMobile from './Components/TopNavMainMobile';
 
 export default class extends Component {
     constructor(props) {

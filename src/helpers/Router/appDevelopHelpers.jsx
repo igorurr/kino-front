@@ -25,7 +25,7 @@ const getPath = ( route, data, hash, search ) => {
     return res;
 };
 
-export const redirect = ( route, hash, search ) => {
+export const redirect = ( route, hash, search, aaaaaaaaa ) => {
     history.push( getPath( route, null, hash, search ) );
 };
 

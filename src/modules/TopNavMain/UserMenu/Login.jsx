@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import * as yup from 'yup';
 import { Formik } from 'formik';
 
-import { TextField, Button, Modal, List, LoadingScreen } from '../../../Atomic';
+import { TextField, Button, Modal, List, LoadingScreen } from '../../Atomic';
 
-import { withKino } from "../../../../envs/Kino/";
+import { withKino } from "../../../envs/Kino/";
+import { redirect } from "../../../helpers/Router/";
 
 import "./styles.scss";
 
@@ -33,11 +34,10 @@ class Login extends Component {
         this.props.kino.actions.login( values.email, values.password )
             .then( response => {
                 this.setState( { isLoading: false } );
-                console.log(values, response)
+                redirect( 'user' );
             } )
             .catch( reason => {
                 this.setState( { isLoading: false } );
-                console.log(values, reason)
                 setErrors( reason )
             } )
     }

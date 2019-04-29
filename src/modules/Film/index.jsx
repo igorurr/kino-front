@@ -52,6 +52,7 @@ const styles = {
 
 const Film = ({ 
   classes, 
+  className,
   film: { 
     id,
     name,
@@ -60,7 +61,7 @@ const Film = ({
     img
   }
 }) => (
-  <Card className={cn(classes.card,'film-card')}>
+  <Card className={cn(className,classes.card,'film-card')}>
     <CardActionArea>
       <CardMedia
           className={classes.media}

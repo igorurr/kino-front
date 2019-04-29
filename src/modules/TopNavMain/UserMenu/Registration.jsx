@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import { TextField, Button, Modal, List } from '../../../Atomic';
+import { TextField, Button, Modal, List } from '../../Atomic';
 
-import { withKino } from "../../../../envs/Kino/";
+import { withKino } from "../../../envs/Kino/";
 
 import "./styles.scss";
 

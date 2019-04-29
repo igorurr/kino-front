@@ -3,6 +3,13 @@
     .user-drop-down-menu-item a {
         color: #000a !important;
     }
+
+    .user-drop-down-menu-item {
+        &-person {
+            display: flex;
+            justify-content: center;
+        }
+    }
 }
 
 .login-modal {

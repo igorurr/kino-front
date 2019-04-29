@@ -10,6 +10,7 @@ export default class extends Data {
     constructor( state ){
         super(state);
 
+        this.store = this.store.bind(this);
         this.user = this.user.bind(this);
         this.userLogined = this.userLogined.bind(this);
         this.userName = this.userName.bind(this);
@@ -17,6 +18,10 @@ export default class extends Data {
     }
 
     lsUserAuthToken = () => ls.get('userAuthToken');
+
+    store() {
+        return this.state;
+    }
 
     user() {
         return userSelector( this.state );

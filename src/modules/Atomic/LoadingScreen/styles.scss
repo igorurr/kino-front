@@ -7,12 +7,18 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background: #fff9;
+        background: #fffC;
         z-index: 100;
         display: none;
 
         &-header {
-
+            position: absolute !important;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            margin: auto;
+            box-shadow: 0 0 46px 10px #fff;
         }
     }
 
