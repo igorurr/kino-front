@@ -1,0 +1,32 @@
+
+//$xxs
+$xs: 400px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1600px;
+
+$xxs-only: (max-width: $xs - 1);        // < 400px
+
+$xs-min: (min-width: $xs);              // >= 400px
+$xs-max: (max-width: $sm - 1);          // < 576px
+$xs-only: '#{$xs-min} and #{$xs-max}';  // >= 400px && < 576px
+
+$sm-min: (min-width: $sm);              // >= 576px
+$sm-max: (max-width: $md - 1);          // < 768px
+$sm-only: '#{$sm-min} and #{$sm-max}';  // >= 576px && < 768px
+
+$md-min: (min-width: $md);              // >= 768px
+$md-max: (max-width: $lg - 1);          // < 992px
+$md-only: '#{$md-min} and #{$md-max}';  // >= 768px && < 992px
+
+$lg-min: (min-width: $lg);              // >= 992px
+$lg-max: (max-width: $xl - 1);          // < 1200px
+$lg-only: '#{$lg-min} and #{$lg-max}';  // >= 992px && < 1200px
+
+$xl-min: (min-width: $xl);              // >= 1200px
+$xl-max: (max-width: $xxl - 1);         // < 1600px
+$xl-only: '#{$xl-min} and #{$xl-max}';  // >= 1200px && < 1600px
+
+$xxl-only: (min-width: $xxl);           // >= 1600px

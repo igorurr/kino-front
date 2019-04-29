@@ -43,3 +43,6 @@ redirect( name, params )
 
 
 разберись с CreateRef
+
+
+modules/WindowScaleCheck

@@ -38,19 +38,71 @@ const styles = {
     pos: {
       marginBottom: 12,
     },
-    iconSmall: {
-      fontSize: 15,
-    },
     likesDislikes: {
       flexGrow: 2,
       display: 'flex'
-    },
-    likesDislikesValue: {
-      margin: '0 10px 0 5px'
     }
   };
 
 const Film = ({ 
+  classes, 
+  className,
+  film: { 
+    id,
+    name,
+    actors,
+    description,
+    img
+  }
+}) => (
+  <Card className={cn(className,classes.card,'film-card')}>
+    <CardActionArea>
+      <CardMedia
+          className={classes.media}
+          image={img}
+          title={name}
+          alt={name}
+      />
+      <CardContent>
+        <Typography variant="h5" component="h2">
+          {name}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          {actors}
+        </Typography>
+        <Typography component="p">
+          {description}
+        </Typography>
+      </CardContent>
+    </CardActionArea>
+    <CardActions>
+      <Grid 
+        justify="space-between" 
+        alignItems='center'
+        container
+      >
+        <nav className='reactions'>
+          <p className='like-dislike'>
+            <IconButton className='like-dislike-button'>
+              <ThumbUp className='like-dislike-button-icon' fontSize='small' />
+            </IconButton>
+            <span className='like-dislike-value'>5</span>
+          </p>
+          <p className='like-dislike'>
+            <IconButton className='like-dislike-button'>
+              <ThumbDown className='like-dislike-button-icon' fontSize='small' />
+            </IconButton>
+            <span className='like-dislike-value'>5</span>
+          </p>
+        </nav>
+      </Grid>
+    </CardActions>
+  </Card>
+);
+
+
+
+const Film2 = ({ 
   classes, 
   className,
   film: { 

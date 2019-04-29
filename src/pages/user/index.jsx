@@ -7,6 +7,7 @@ import { withKino } from '../../envs/Kino'
 import { Main } from "../../modules/PageBody/";
 import TopNavMain from "../../modules/TopNavMain/";
 import Footer from "../../modules/FooterMain";
+import WindowScaleCheck from "../../modules/WindowScaleCheck";
 
 import UserInfo from "./UserInfo";
 import Favorites from "./Favorites";
@@ -39,8 +40,8 @@ class User extends Component {
     render() {
         const { currentTab } = this.state;
 
-        if( !this.props.kino.data.userLogined() )
-            return ( <Redirect route='index' hash='login' /> );
+        /*if( !this.props.kino.data.userLogined() )
+            return ( <Redirect route='index' hash='login' /> );*/
 
         return (
             <Main
@@ -48,6 +49,9 @@ class User extends Component {
                 topNavContent={<TopNavMain />}
                 footerContent={<Footer />}
             >
+                {/*<WindowScaleCheck 
+                    xlCh={()}
+                />*/}
                 <main className="page-user">
                     <UserInfo />
                     <PriorityRecomended />

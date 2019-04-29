@@ -9,7 +9,7 @@ const defFilm = {
     name: 'gf',
     actors: 'fgdf40gdfg',
     description: 'gfdgdfg',
-    img: 'r454t'
+    img: 'https://www.film.ru/sites/default/files/styles/epsa_1024x450/public/37087459-1034012.jpg'
   };
 
 export default class extends Component {

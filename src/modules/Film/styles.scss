@@ -1,15 +1,53 @@
-#root {
-    position: relative;
+@import '../PageBody/consts.scss';
 
-    .dev-tools {
-        position: absolute;
 
-        background: #fff;
-        padding: 3px;
-        border-radius: 0 0 8px 0;
+.film-card {
+
+    .reactions {
+        display: flex;
+        width: 100%;
+
+        @media #{$md-max} {
+            justify-content: flex-end;
+        }
     }
 
-    .dev-tools:hover {
-        opacity: 0.4;
+    .like-dislike {
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        @media #{$md-max} {
+            margin-left: 16px;
+        }
+
+        &-button {
+
+            @media #{$md-max} {
+                padding: 6px;
+            }
+
+            &-icon {
+                font-size: 30px;
+        
+                @media #{$md-max} {
+                    font-size: 15px;
+                }
+        
+                @media #{$lg-min} {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .like-dislike-value {
+        @media #{$md-max} {
+        }
+
+        @media #{$lg-min} {
+            margin: 0 10px 0 5px;
+        }
     }
 }
