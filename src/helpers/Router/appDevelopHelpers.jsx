@@ -41,12 +41,12 @@ const getPath = ( route, data, hash, search, name, params ) => {
     return res;
 };
 
-const Redirect = ( { route, hash, search, name, params } ) => (
-    <RedirectComp to={getPath( route, null, hash, search, name, params )} />
+const Redirect = ( { route, hash, data, search, name, params } ) => (
+    <RedirectComp to={getPath( route, data, hash, search, name, params )} />
 );
 
-export const redirect = ( route, hash, search, name, params ) => {
-    history.push( getPath( route, null, hash, search, name, params ) );
+export const redirect = ( route, hash, data, search, name, params ) => {
+    history.push( getPath( route, data, hash, search, name, params ) );
 };
 
 /*
@@ -74,8 +74,8 @@ export const redirectIf = ( name, params, pred, Component ) => ( props ) => {
     );
 }
 
-export const Link = ({ children, route, hash, search, name, params }) => (
-    <LinkComp to={getPath( route, null, hash, search, name, params )}>
+export const Link = ({ children, hash, data, search, name, params }) => (
+    <LinkComp to={getPath( route, data, hash, search, name, params )}>
         {children}
     </LinkComp>
 );

@@ -26,23 +26,9 @@
 вызов ссылки или редиректа тогда будет такой:
 <Link to='name' params={{p1:v1,p2:v2}}></Link>
 redirect( name, params )
-
-
-
-выпилить компонент редиректа (Redirect) заменив его на хук redirectIf, создать redirectSwitch, куда отдавать
-[
-	{ name, params, pred:()=>bool },
-	{ name, params, pred:()=>bool }
-]
-кто первый выполнится по списку тот и будет показан
-
-
-
-создать на основе того что выше isLogined(CompIsTrue, CompIsFalse), isNoLogined(CompIsTrue) 
-
+по дефолту, без указанного препроцессора  params={pathname,hash,search,data}
 
 
 разберись с CreateRef
 
-
-modules/WindowScaleCheck
+доделать линки и подебажить их и scaleCheck

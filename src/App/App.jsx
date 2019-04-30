@@ -6,6 +6,8 @@ import { routerReducer } from 'react-router-redux';
 import { createStore } from "../helpers/Store/";
 import { createRoutes, createRouterHistory, AppRouter } from "../helpers/Router/";
 
+import { ProviderScaleCheck } from '../modules/WindowScaleCheck/';
+
 import { RenderDevTools } from "../modules/DevTools/";
 
 import routes from "../pages/routes";
@@ -37,8 +39,10 @@ export default () => (
     <Router history={history}>
       <AppRouter>
         <AppContent>
-          {__DEV__ && <RenderDevTools store={store} />}
-          {createRoutes( routes )}
+          <ProviderScaleCheck>
+            {__DEV__ && <RenderDevTools store={store} />}
+            {createRoutes( routes )}
+          </ProviderScaleCheck>
         </AppContent>
       </AppRouter>
     </Router>
